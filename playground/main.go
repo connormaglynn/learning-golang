@@ -1,11 +1,17 @@
 package main
 
-import "fmt"
+import (
+	"bufio"
+	"fmt"
+	"os"
+	"strings"
+)
 
 func main() {
 	// Add program to execute
 	//guessTheNumber(2)
-	pointersAndReferences()
+	//pointersAndReferences()
+	screamBackAtMe()
 }
 
 func guessTheNumber(guess int) bool {
@@ -32,4 +38,12 @@ func pointersAndReferences() {
 	fmt.Println("*b = ", *b, `// 👈 Go to the address stored in variable "b" and return the value (de-referencing)`)
 
 	fmt.Println("End")
+}
+
+func screamBackAtMe() {
+	fmt.Println("What would you like me to scream?")
+	in := bufio.NewReader(os.Stdin)
+	s, _ := in.ReadString('\n')
+	s = strings.ToUpper(strings.TrimSpace(s))
+	fmt.Println(s + "!")
 }
