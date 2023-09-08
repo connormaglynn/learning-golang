@@ -11,7 +11,8 @@ func main() {
 	// Add program to execute
 	//guessTheNumber(2)
 	//pointersAndReferences()
-	screamBackAtMe()
+	//screamBackAtMe()
+	arrays()
 }
 
 func guessTheNumber(guess int) bool {
@@ -46,4 +47,40 @@ func screamBackAtMe() {
 	s, _ := in.ReadString('\n')
 	s = strings.ToUpper(strings.TrimSpace(s))
 	fmt.Println(s + "!")
+}
+
+func arrays() {
+	fmt.Println("\nInit empty array and populate a single value by index")
+	names := [4]string{}
+	names[0] = "Connor"
+	fmt.Println(names)
+
+	fmt.Println("\nInit empty array and populate a multiple value by index")
+	colours := [4]string{}
+	colours[0] = "red"
+	colours[2] = "blue"
+	fmt.Println(colours)
+
+	fmt.Println("\nInit array with values, overriding one by index")
+	cities := [4]string{"sheffield", "doncaster", "london", "leeds"}
+	cities[3] = "replaced!"
+	fmt.Println(cities)
+
+	fmt.Println("\nCopy cities array by value, modify the copy and display both")
+	citiesCopiedByValue := cities
+	citiesCopiedByValue[0] = "replaced!"
+	fmt.Println("Original: ", cities)
+	fmt.Println("Copy: ", citiesCopiedByValue)
+
+	fmt.Println("\nCopy cities array by reference, modify the copy and display both (no de-referencing on copy)")
+	citiesCopiedByReference := &cities
+	citiesCopiedByReference[0] = "replaced!"
+	fmt.Println("Original: ", cities)
+	fmt.Println("Copy: ", citiesCopiedByReference)
+
+	fmt.Println("\nCopy colours array by reference, modify the copy and display both  (with de-referencing on copy)")
+	coloursCopiedByReference := &colours
+	coloursCopiedByReference[0] = "replaced!"
+	fmt.Println("Original: ", colours)
+	fmt.Println("Copy: ", *coloursCopiedByReference)
 }
