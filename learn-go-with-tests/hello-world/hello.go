@@ -1,5 +1,10 @@
 package main
 
-func Hello(helloMessage string) string {
-	return helloMessage
+const englishHello = "Hello, "
+
+func Hello(name string) string {
+	if name == "" {
+		name = "World"
+	}
+	return englishHello + name
 }
