@@ -10,9 +10,9 @@ import (
 func main() {
 	// Add program to execute
 	//guessTheNumber(2)
-	//pointersAndReferences()
+	pointersAndReferences()
 	//screamBackAtMe()
-	arrays()
+	// arrays()
 }
 
 func guessTheNumber(guess int) bool {
@@ -28,16 +28,31 @@ func guessTheNumber(guess int) bool {
 func pointersAndReferences() {
 	fmt.Println("Start")
 
-	a := "a"
+	fmt.Println("")
+
+	a := "👑"
+	fmt.Println("a := 👑")
+	fmt.Println("a ->", a, `// 👈 The variable "a" contains the string "👑"`)
+	fmt.Println("&a ->", &a, `// 👈 The address of the variable "a"`)
+	fmt.Println(`*a -> ERROR // 👈 Cannot be done since the variable "a" is not a pointer type (pointer type -> &)`)
+
+	fmt.Println("")
+
 	b := &a
+	fmt.Println("b := &a")
+	fmt.Println("b ->", b, `// 👈 The value of the variable "b" is the address of variable "a"`)
+	fmt.Println("&b ->", &b, `// 👈 The address of the variable "b"`)
+	fmt.Println("*b ->", *b, `// 👈 Go to the address stored in variable "b" and return the value (de-referencing)`)
 
-	fmt.Println("a = ", a, `// 👈 The variable "a" contains the string "a"`)
-	fmt.Println("&a = ", &a, `// 👈 The address of the variable "a"`)
-	fmt.Println(`*a =  ERROR // 👈 Cannot be done since the variable "a" is not a pointer type (pointer type = &)`)
-	fmt.Println("b = ", b, `// 👈 The value of the variable "b" is the address of variable "a"`)
-	fmt.Println("&b = ", &b, `// 👈 The address of the variable "b"`)
-	fmt.Println("*b = ", *b, `// 👈 Go to the address stored in variable "b" and return the value (de-referencing)`)
+	fmt.Println("")
 
+	c := &b
+	fmt.Println("c := &b")
+	fmt.Println("c ->", c, `// 👈 The value of the variable "c" is the address of variable "b"`)
+	fmt.Println("&c ->", &c, `// 👈 The address of the variable "c"`)
+	fmt.Println("*c ->", *c, `// 👈 Go to the address stored in variable "c" and return the value (de-referencing)`)
+	fmt.Println("**c ->", **c, `// 👈 Go to the address, of the address stored in variable "c" and return the value (de-referencing twice!)`)
+	fmt.Println("")
 	fmt.Println("End")
 }
 
